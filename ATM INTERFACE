@@ -1,0 +1,163 @@
+import java.io.*;
+import java.util.*;
+class bank
+{
+int  pin,pin3,pin2,bal,total1,withdraw,deposit,choice,deposit2,withdraw2,pin1,rk;
+
+Scanner r=new Scanner(System.in);
+    void total()
+    {
+        System.out.print("\n\n\n------------------------------------------------------------------------------------------------------------------------");
+   
+        System.out.print("\n                                 Welcome in ATM Machine InterFace ");  
+        System.out.print("\n------------------------------------------------------------------------------------------------------------------------");
+    System.out.print("\n\n                  enter total ammount  :  ");
+    total1=r.nextInt();
+     System.out.print("\n                  enter your ATM  pin  :  ");
+     pin=r.nextInt();
+    }
+      void choice1()
+      {
+        System.out.print("\n.................................................................................................................");
+   
+      System.out.print("\n\n                            1. deposit amount  \n                            2. withdraw amount\n                            3. check bal \n                            4. change pin \n                            5. Exit" ); 
+      System.out.print("\n                    ---------------------------------------");
+   
+      System.out.print("\n...................................................................................................................");
+   
+      System.out.print("\n\n                    enter your do you want to work : ");
+      choice =r.nextInt();
+       
+     switch(choice)
+     {  
+     case 1:
+     System.out.print("\n                   ------------------------------------------------------------------");
+   
+     System.out.print("\n                                      you have selected 1 for deposit ");
+     System.out.print("\n                   ------------------------------------------------------------------");
+System.out.print("\n\n\n                                Enter your pin : ");
+      pin1=r.nextInt();
+     if(pin==pin1){
+     System.out.print("\n\n\n                         enter ammount of deposit  : ");
+     deposit=r.nextInt();
+     if(deposit !=0){
+     deposit2=total1+deposit;
+     System.out.println("\n       --------------------------------------------------------------------------------");
+     System.out.print("                 you have deposited " +deposit +" now total ammount is a " +deposit2);
+     System.out.print("\n       --------------------------------------------------------------------------------");
+     }else{
+        System.out.print("\n                   ------------------------------------------------------------------");
+        System.out.print(" \n                                     No any Amount Deposited try again ");
+        System.out.print("\n                   ------------------------------------------------------------------");
+    }
+    } else{
+        System.out.println("Wrong pin Re-enter : ");
+        
+        System.out.println("\n                           enter correct pin ");
+    System.out.print("\n         -------------------------------------------------------------------------------");
+System.out.print("\n                          forgot your pin enter 358 : ");
+rk=r.nextInt();
+System.out.print("\n         -------------------------------------------------------------------------------");
+
+
+if(rk==358)
+    
+{
+System.out.println("                                        your old pin is " +pin); }
+ else{System.out.println("\n                                enter only 358");}
+}
+     break;
+     case 2:
+     System.out.print("\n                   ------------------------------------------------------------------");
+   
+     System.out.print("\n                                   you have selected 2 for withdraw ");
+     System.out.print("\n                   ------------------------------------------------------------------");
+   
+     System.out.print(" \n                                     Enter your pin : ");
+      pin1=r.nextInt();
+     if(pin==pin1)
+     {
+     System.out.print("\n                                   enter ammount of withdraw  : ");
+     withdraw=r.nextInt();
+     if(total1>=withdraw){
+     withdraw2=total1-withdraw;
+     System.out.print("\n               ----------------------------------------------------------------------------");
+   
+     System.out.print("\n                       you have withdraw "+withdraw+" now is available bal is " +withdraw2);
+     System.out.print("\n              ------------------------------------------------------------------------------");
+     }
+     else{System.out.println(" \n\n\n                                  Enter Valid Ammount   ");
+     System.out.print("\n                                         ---------------");
+     System.out.print("\n                                              .....");
+   }
+}
+else{System.out.println("\n                                    Enter correct pin ");
+System.out.println("\n                                      forgot your pin enter 358 : ");
+rk=r.nextInt();
+
+if(rk==358)
+{
+    System.out.print("\n               ------------------------------------------------------------------");
+System.out.print("  \n                              your old pin is " +pin); 
+System.out.print("\n                   ------------------------------------------------------------------");
+   
+ }
+ else{System.out.println("                                      enter only 358");} 
+}   
+break; 
+    case 3:
+    System.out.print("\n              ------------------------------------------------------------------");
+   
+    System.out.print(" \n                     you have selected 3 for check bal ");
+    System.out.print("\n              ------------------------------------------------------------------");
+   
+    System.out.println("\n your now total bal is "+total1);
+    break;
+    case 4 :
+    System.out.print("\n     ------------------------------------------------------------------");
+   
+    System.out.println("                you have selected 4 for change pin ");   
+    System.out.print("\n     ------------------------------------------------------------------");
+   
+   System.out.print("\n Enter your old pin : ");
+   pin1=r.nextInt();   
+if(pin==pin1)
+{
+   System.out.print("\n enter new pin : ");
+    pin2=r.nextInt();
+   System.out.print("\n confirm pin :  ");
+   pin3=r.nextInt();
+       if(pin2==pin3)
+       {
+        System.out.print("\n                   ------------------------------------------------------------------");
+   
+        System.out.print("\n	                            your pin is changed succesfully   ");
+        System.out.print("\n                   ------------------------------------------------------------------");
+   
+        }
+        else
+         {
+         System.out.println("enter correct pin ");
+         } 
+  
+}
+else
+{
+System.out.println("                    pin does not matched remember old pin");
+System.out.print("\n	                    forget pin   to enter  358 : ");
+rk=r.nextInt();
+}  if(rk==358){
+  System.out.println("\n                                 your  forgetted pin is "+pin);}
+else{System.out.println("                                   thank you");
+}
+case 5:
+System.exit(0);
+}
+}
+    public static void main(String arg[])
+    { 
+    bank s=new bank();
+    s.total();
+    s.choice1();
+    }
+}
